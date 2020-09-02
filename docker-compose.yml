@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_USER: gorm
+            MYSQL_PASSWORD: gorm
+            MYSQL_DB: gorm
+        ports:
+            - 5432:5432
+      
