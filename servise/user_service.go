@@ -1,12 +1,13 @@
 package user
 
 import (
+	"github.com/gin-gonic/gin"
+
 	"github.com/ShuichiroTsuda/cloud/db"
 	"github.com/ShuichiroTsuda/cloud/entity"
-	"github.com/gin-gonic/gin"
 )
 
-// Service provides user's behavior
+// Service procides user's behavior
 type Service struct{}
 
 // User is alias of entity.User struct
@@ -24,7 +25,7 @@ func (s Service) GetAll() ([]User, error) {
 	return u, nil
 }
 
-// CreateModel is create  User model
+// CreateModel is create User model
 func (s Service) CreateModel(c *gin.Context) (User, error) {
 	db := db.GetDB()
 	var u User
@@ -49,8 +50,6 @@ func (s Service) GetByID(id string) (User, error) {
 		return u, err
 	}
 
-	db.Save(&u)
-
 	return u, nil
 }
 
@@ -59,7 +58,7 @@ func (s Service) UpdateByID(id string, c *gin.Context) (User, error) {
 	db := db.GetDB()
 	var u User
 
-	if err := db.Where("id=?", id).First(&u).Error; err != nil {
+	if err := db.Where("id = ?", id).First(&u).Error; err != nil {
 		return u, err
 	}
 

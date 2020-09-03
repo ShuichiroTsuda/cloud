@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/ShuichiroTsuda/cloud/user"
+	"github.com/ShuichiroTsuda/cloud/service"
 )
 
 // Controller is user controller
