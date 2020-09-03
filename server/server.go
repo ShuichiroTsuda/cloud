@@ -1,6 +1,7 @@
 package server
 
 import (
+	user "github.com/ShuichiroTsuda/cloud/controller"
 	"github.com/gin-gonic/gin"
 )
 
