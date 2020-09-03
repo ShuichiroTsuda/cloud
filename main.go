@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/shuic/cloud/db"
+	"github.com/ShuichiroTsuda/cloud/db"
 )
 
 func main() {
@@ -13,4 +13,5 @@ func main() {
 	})
 	db.Init()
 	r.Run(":8080")
+	db.Close()
 }

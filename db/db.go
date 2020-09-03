@@ -1,6 +1,7 @@
 package db
 
 import (
+	"github.com/ShuichiroTsuda/cloud/entity"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres" // Use PostgreSQL in gorm
 )
@@ -12,10 +13,12 @@ var (
 
 // Init is initialize db from main function
 func Init() {
-	db, err = gorm.Open("mysql", "host=0.0.0.0 port=5432 user=gorm dbname=gorm password=gorm sslmode=disable")
+	db, err = gorm.Open("postgres", "host=0.0.0.0 port=5432 user=gorm dbname=gorm password=gorm sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
+
+	autoMigration()
 }
 
 // GetDB is called in models
@@ -28,4 +31,8 @@ func Close() {
 	if err := db.Close(); err != nil {
 		panic(err)
 	}
+}
+
+func autoMigration() {
+	db.AutoMigrate(&entity.User{})
 }
