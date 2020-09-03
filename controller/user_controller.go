@@ -4,11 +4,9 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/ShuichiroTsuda/cloud/service"
 )
 
-// Controller is user controller
+// Controller is user controlller
 type Controller struct{}
 
 // Index action: GET /users
@@ -18,7 +16,7 @@ func (pc Controller) Index(c *gin.Context) {
 
 	if err != nil {
 		c.AbortWithStatus(404)
-		fmt.PrintLn(err)
+		fmt.Println(err)
 	} else {
 		c.JSON(200, p)
 	}

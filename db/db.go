@@ -1,9 +1,10 @@
 package db
 
 import (
-	"github.com/ShuichiroTsuda/cloud/entity"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres" // Use PostgreSQL in gorm
+
+	"github.com/ShuichiroTsuda/cloud/entity"
 )
 
 var (
